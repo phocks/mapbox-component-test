@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 
-
 import config from "../../config";
 
 import styles from "./styles.scss";
@@ -14,9 +13,9 @@ export default props => {
   useEffect(() => {
     var map = new mapboxgl.Map({
       container: inputEl.current,
-      style: 'mapbox://styles/phocksx/cjw8qf3hh0vo31ckgen821rq9',
-center: [137.256953, -26.871920],
-zoom: 4.0
+      style: "mapbox://styles/phocksx/cjw8qf3hh0vo31ckgen821rq9",
+      center: [137.256953, -26.87192],
+      zoom: 4.0
     });
   });
 
