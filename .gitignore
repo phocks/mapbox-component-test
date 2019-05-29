@@ -1,0 +1,11 @@
+# dependencies
+/node_modules
+
+# output
+/.build
+/.deploy
+
+# misc
+.DS_Store
+npm-debug.log
+config.js
