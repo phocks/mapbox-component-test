@@ -1,23 +1,37 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import mapboxgl from "mapbox-gl/dist/mapbox-gl.js";
 
-import config from "../../config";
-
+import config from "../../config"; // Try not to commit API tokens to GitHub
 import styles from "./styles.scss";
-
-var mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
 
 mapboxgl.accessToken = config.MAPBOX_KEY;
 
-export default props => {
+let map;
+
+const MapboxCore = props => {
   const inputEl = useRef(null);
+
+  const [initialised, setInitialised] = useState(false);
+
   useEffect(() => {
-    var map = new mapboxgl.Map({
+    map = new mapboxgl.Map({
       container: inputEl.current,
-      style: "mapbox://styles/phocksx/cjw8qf3hh0vo31ckgen821rq9",
+      style: props.styleUrl,
       center: [137.256953, -26.87192],
-      zoom: 4.0
+      zoom: props.zoomFactor,
+      scrollZoom: false
     });
-  });
+
+    setInitialised(true);
+  }, []);
+
+  useEffect(() => {
+    if (!initialised) return;
+    map.setStyle(props.styleUrl);
+    map.setZoom(props.zoomFactor);
+  }, [props.styleUrl, props.zoomFactor]);
 
   return <div className={styles.root} ref={inputEl} />;
 };
+
+export default MapboxCore;
