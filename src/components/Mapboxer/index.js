@@ -8,7 +8,7 @@ mapboxgl.accessToken = config.MAPBOX_KEY;
 
 let map;
 
-const MapboxCore = React.memo(props => {
+const Mapboxer = React.memo(props => {
   const inputEl = useRef(null);
 
   const [initialised, setInitialised] = useState(false);
@@ -65,8 +65,8 @@ const MapboxCore = React.memo(props => {
   return <div className={styles.root} ref={inputEl} />;
 });
 
-MapboxCore.defaultProps = {
+Mapboxer.defaultProps = {
   styleUrl: "mapbox://styles/mapbox/light-v10"
 }
 
-export default MapboxCore;
+export default Mapboxer;

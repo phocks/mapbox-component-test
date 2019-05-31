@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./styles.scss";
 import { hashify } from "spanify";
-import MapboxCore from "../MapboxCore";
+import Mapboxer from "../Mapboxer";
 import CustomPanel from "../CusomPanel";
 
 // Convert hash marks into divs
@@ -39,7 +39,7 @@ const App = props => {
         // panelClassName={"Block-content u-richtext " + styles.scrollyText}
         // scrollTween={scrollTweener}
       >
-        <MapboxCore
+        <Mapboxer
           // styleUrl={"mapbox://styles/phocksx/cjrvgcikn0ayw1fjn2xzml6za"}
           zoomFactor={mapZoom}
           destination={destination}
