@@ -16,10 +16,13 @@ const mountPoint = document.querySelector(".mountpoint");
 
 const App = props => {
   const [mapZoom, setMapZoom] = useState(3);
-  
+  const [destination, setDestination] = useState([153.021072, -27.470125]);
+
   const onMarker = () => {
-    console.log("Oh hi Mark");
-    setMapZoom(Math.random() * 5)
+    
+    // setMapZoom(Math.random() * 5);
+    
+     setDestination([123.021072 + Math.random() * 5, -27.470125 + Math.random()]);
   };
 
   const scrollTweener = (progress, panel, pixelsAboveFold) => {
@@ -36,7 +39,11 @@ const App = props => {
         // panelClassName={"Block-content u-richtext " + styles.scrollyText}
         // scrollTween={scrollTweener}
       >
-        <MapboxCore styleUrl={"mapbox://styles/mapbox/dark-v9"} zoomFactor={mapZoom} />
+        <MapboxCore
+          // styleUrl={"mapbox://styles/phocksx/cjrvgcikn0ayw1fjn2xzml6za"}
+          zoomFactor={mapZoom}
+          destination={destination}
+        />
       </Scrollyteller>
     </Portal>
   );
