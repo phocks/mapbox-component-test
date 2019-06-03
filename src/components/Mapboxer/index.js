@@ -18,8 +18,8 @@ const Mapboxer = React.memo(props => {
       container: inputEl.current,
       attributionControl: false,
       style: props.styleUrl,
-      center: [137.256953, -29.87192],
-      zoom: props.zoomFactor,
+      // center: [137.256953, -29.87192],
+      // zoom: props.zoomFactor,
       interactive: false
       // scrollZoom: false
     });

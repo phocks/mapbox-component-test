@@ -2,9 +2,6 @@ import React from 'react';
 import { render } from 'react-dom';
 import App from './components/App';
 
-
-console.log("Hello...");
-
 const PROJECT_NAME = 'mapbox-component-test';
 const root = document.querySelector(`[data-${PROJECT_NAME}-root]`);
 
