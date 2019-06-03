@@ -20,7 +20,8 @@ const mountPoint = document.querySelector(".mountpoint");
 const App = props => {
   const [mapZoom, setMapZoom] = useState(3);
   const [destination, setDestination] = useState([153.021072, -27.470125]);
-  const [style, setStyle] = useState("mapbox://styles/mapbox/light-v10");
+  const [style, setStyle] = useState("mapbox://styles/phocksx/cjwfywac538261cqnulc5vf9z");
+  const [zoom, setZoom] = useState(3)
   const [bounds, setBounds] = useState([
     [135.8243337738, -32.8730506316],
     [158.1124930831, -8.5116828502]
@@ -36,13 +37,15 @@ const App = props => {
   };
 
   const scrollTweener = (progress, panel, pixelsAboveFold) => {
-    console.log(progress, panel, pixelsAboveFold);
+    if (progress < 0) return;
+    // console.log(progress)
+    setZoom(progress * 5)
   };
 
   return (
     <Portal into={mountPoint}>
-      <Scrollyteller panels={scrollyData.panels} onMarker={onMarker} panelComponent={CustomPanel}>
-        <Mapboxer apiKey={config.MAPBOX_KEY} setStyle={style} setBounds={bounds} />
+      <Scrollyteller panels={scrollyData.panels} onMarker={onMarker} panelComponent={CustomPanel} scrollTween={scrollTweener}>
+        <Mapboxer apiKey={config.MAPBOX_KEY} setStyle={style} fitBounds={bounds} setZoom={zoom} />
       </Scrollyteller>
     </Portal>
   );
