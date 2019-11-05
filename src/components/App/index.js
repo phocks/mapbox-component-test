@@ -20,7 +20,7 @@ const mountPoint = document.querySelector(".mountpoint");
 const App = props => {
   const [mapZoom, setMapZoom] = useState(3);
   const [destination, setDestination] = useState([153.021072, -27.470125]);
-  const [style, setStyle] = useState("mapbox://styles/mapbox/satellite-v9");
+  const [style, setStyle] = useState("mapbox://styles/phocksx/cjwhc8lpb4cso1co7gwk9m9g4");
   const [zoom, setZoom] = useState(3);
   const [bounds, setBounds] = useState([
     [135.8243337738, -32.8730506316],
@@ -39,8 +39,23 @@ const App = props => {
     // else setBounds([[135.8243337738, -32.8730506316], [158.1124930831, -8.5116828502]]);
 
     if (flyTo.index === 1)
-      setFlyTo({ center: [115.857, -31.95], index: 0, zoom: 9, pitch: 60, bearing: -10, screenSpeed: 0.5 });
-    else setFlyTo({ center: [152.021, -27.47], index: 1, zoom: 5, pitch: 0, bearing: 0, screenSpeed: 0.5 });
+      setFlyTo({
+        center: [138.687087, -34.880053],
+        index: 0,
+        zoom: 9,
+        pitch: 60,
+        bearing: -10,
+        screenSpeed: 0.5
+      });
+    else
+      setFlyTo({
+        center: [137.400085, -34.991126],
+        index: 1,
+        zoom: 8,
+        pitch: 30,
+        bearing: 0,
+        screenSpeed: 0.5
+      });
 
     // if (jumpTo.index === 1)
     // setJumpTo({ center: [115.857, -31.95], index: 0, zoom: 9, pitch: 60, bearing: -10, duration: 1300 });
@@ -67,24 +82,22 @@ const App = props => {
   return (
     <Portal into={mountPoint}>
       <div onClick={someEvent}>
-      <Scrollyteller
-        panels={scrollyData.panels}
-        onMarker={onMarker}
-        panelComponent={CustomPanel}
-        scrollTween={scrollTweener}
-        
-      >
-        <Mapboxer
-          apiKey={config.MAPBOX_KEY}
-          setStyle={style}
-          fitBounds={bounds}
-          setZoom={zoom}
-          interactive={false}
-          flyTo={flyTo}
-          antialias={false}
-          
-        />
-      </Scrollyteller>
+        <Scrollyteller
+          panels={scrollyData.panels}
+          onMarker={onMarker}
+          panelComponent={CustomPanel}
+          scrollTween={scrollTweener}
+        >
+          <Mapboxer
+            apiKey={config.MAPBOX_KEY}
+            setStyle={style}
+            fitBounds={bounds}
+            setZoom={zoom}
+            interactive={false}
+            flyTo={flyTo}
+            antialias={false}
+          />
+        </Scrollyteller>
       </div>
     </Portal>
   );
