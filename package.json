@@ -22,8 +22,8 @@
     "@abcnews/scrollyteller": "^1.4.4",
     "mapbox-gl": "^1.0.0",
     "mapboxer": "^1.0.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "spanify": "^1.4.0"
   }
 }
