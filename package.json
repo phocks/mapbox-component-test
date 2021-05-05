@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@abcnews/scrollyteller": "^1.4.4",
-    "mapbox-gl": "^1.0.0",
+    "mapbox-gl": "^1.13.1",
     "mapboxer": "^1.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
